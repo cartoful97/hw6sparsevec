@@ -1,0 +1,19 @@
+Package: hw6sparsevec
+Title: Sparse Numeric Class Package
+Version: 0.0.0.9000
+Authors@R: 
+    person("Iris", "Quan", , "first.last@example.com", role = c("aut", "cre"))
+Description: Package for a sparse numeric vector class, a numeric vector that 
+ intends to store a large number of zeros. Package contains class definition,
+ coercion methods, and various other methods for calculations on sparse numerics
+ (unsparse, mean, norm, standardize, show) and interactions between two sparse 
+ numerics (sparse_add, sparse_sub, sparse_mult, sparse_crossprod, plot).
+License: MIT + file LICENSE
+Encoding: UTF-8
+Imports:
+    methods
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3

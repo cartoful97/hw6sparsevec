@@ -1,0 +1,129 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# hw6sparsevec
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of hw6sparsevec is to represent a sparse vector with many 0s in a more 
+ efficient form than simply as a dense vector, by storing only the positions and
+ corresponding values of nonzero elements. 
+
+## Installation
+
+You can install the development version of hw6sparsevec by cloning the GitHub
+ repository to your computer, then running `devtools::install("hw6sparsevec")` 
+ in the R console.
+
+## Class
+
+The class has 3 attributes: a numeric vector containing the nonzero values of 
+ the sparse vector, an integer vector containing the positions of the sparse 
+ vector, and the integer length of the complete sparse vector, including 0s.
+ You can initialize a sparse numeric object as follows:
+
+```{r}
+library(hw6sparsevec)
+
+x <- new("sparse_numeric",
+         value = c(1, 2, 1),
+         pos = c(1L, 2L, 5L),
+         length = 5L)
+x
+```
+
+Or, you can convert a numeric vector to a sparse numeric object:
+
+```{r}
+x <- as(c(0, 0, 0, 1, 2), "sparse_numeric")
+x
+```
+
+## Functions
+
+The functions `sparse_add()`, `sparse_mult()`, and `sparse_sub()` perform their 
+ respective operations on two sparse numeric vector objects.
+ 
+```{r}
+x <- as(c(-2, 8, 3, 0, 1), "sparse_numeric")
+y <- as(c(2, 0, 7, 1, -9), "sparse_numeric")
+print('addition')
+sparse_add(x, y)
+print('subtraction')
+sparse_sub(x, y)
+print('multiplication')
+sparse_mult(x, y)
+```
+
+Instead of using the functions directly, the numerical symbols of +, -, and * can 
+ be used as well.
+
+```{r}
+print('addition')
+x + y
+print('subtraction')
+x - y
+print('multiplication')
+x * y
+```
+
+The function `sparse_crossprod()` calculates the cross product of two sparse
+ numeric vectors (the sum of the vectors multiplied together).
+ 
+```{r}
+sparse_crossprod(x, y)
+```
+
+The function `unsparse()` removes all zeros from a sparse numeric and returns the
+ result as a numeric vector.
+ 
+```{r}
+x
+unsparse(x)
+```
+The `plot` function plots the values of elements with overlapping positions of
+ nonzero elements between two sparse numerics.
+ 
+```{r}
+#plot(x, y)
+```
+
+The function `mean()` finds the mean of the elements of a sparse numeric vector.
+
+```{r}
+x
+mean(x)
+```
+The function `norm()` finds the squared norm of the vector (the square root of 
+ the sum of the squared elements).
+
+```{r}
+x
+norm(x)
+```
+The function `standardize()` standardizes the elements of the sparse vector and 
+ returns the result as a dense vector, as all the standardized 0s are unlikely 
+ to remain 0.
+ 
+```{r}
+#x
+#standardize(x)
+```
+
+
+
+
+
