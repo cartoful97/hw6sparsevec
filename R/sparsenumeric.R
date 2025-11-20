@@ -318,7 +318,8 @@ setMethod(
 #'
 #' @param object the sparse numeric vector object
 #'
-#' @exportMethod show
+#' @importFrom methods show
+#' @export
 setMethod(
   "show",
   signature(object = "sparse_numeric"),

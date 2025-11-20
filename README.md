@@ -5,6 +5,7 @@
 
 <!-- badges: start -->
 
+[![R-CMD-check](https://github.com/cartoful97/hw6sparsevec/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/cartoful97/hw6sparsevec/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of hw6sparsevec is to represent a sparse vector with many 0s in
@@ -29,12 +30,9 @@ follows:
 library(hw6sparsevec)
 #> 
 #> Attaching package: 'hw6sparsevec'
-#> The following object is masked from 'package:graphics':
+#> The following object is masked from 'package:base':
 #> 
-#>     plot
-#> The following objects are masked from 'package:base':
-#> 
-#>     mean, norm, plot
+#>     norm
 
 x <- new("sparse_numeric",
          value = c(1, 2, 1),
@@ -68,8 +66,8 @@ y <- as(c(2, 0, 7, 1, -9), "sparse_numeric")
 print('addition')
 #> [1] "addition"
 sparse_add(x, y)
-#> nonzero positions:  1 2 3 4 5 
-#> nonzero values:  0 8 10 1 -8 
+#> nonzero positions:  2 3 4 5 
+#> nonzero values:  8 10 1 -8 
 #> total length:  5
 print('subtraction')
 #> [1] "subtraction"
@@ -92,8 +90,8 @@ and \* can be used as well.
 print('addition')
 #> [1] "addition"
 x + y
-#> nonzero positions:  1 2 3 4 5 
-#> nonzero values:  0 8 10 1 -8 
+#> nonzero positions:  2 3 4 5 
+#> nonzero values:  8 10 1 -8 
 #> total length:  5
 print('subtraction')
 #> [1] "subtraction"
@@ -133,8 +131,10 @@ The `plot` function plots the values of elements with overlapping
 positions of nonzero elements between two sparse numerics.
 
 ``` r
-#plot(x, y)
+plot(x, y)
 ```
+
+<img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
 
 The function `mean()` finds the mean of the elements of a sparse numeric
 vector.
@@ -165,6 +165,10 @@ vector and returns the result as a dense vector, as all the standardized
 0s are unlikely to remain 0.
 
 ``` r
-#x
-#standardize(x)
+x
+#> nonzero positions:  1 2 3 5 
+#> nonzero values:  -2 8 3 1 
+#> total length:  5
+standardize(x)
+#> [1] -1.0504515  1.5756772  0.2626129 -0.5252257 -0.2626129
 ```

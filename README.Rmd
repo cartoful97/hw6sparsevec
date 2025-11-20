@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 # hw6sparsevec
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/cartoful97/hw6sparsevec/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/cartoful97/hw6sparsevec/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of hw6sparsevec is to represent a sparse vector with many 0s in a more 
@@ -98,7 +99,7 @@ The `plot` function plots the values of elements with overlapping positions of
  nonzero elements between two sparse numerics.
  
 ```{r}
-#plot(x, y)
+plot(x, y)
 ```
 
 The function `mean()` finds the mean of the elements of a sparse numeric vector.
@@ -119,8 +120,8 @@ The function `standardize()` standardizes the elements of the sparse vector and
  to remain 0.
  
 ```{r}
-#x
-#standardize(x)
+x
+standardize(x)
 ```
 
 
